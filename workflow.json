@@ -3,31 +3,14 @@
     {
       "parameters": {
         "options": {
-          "systemMessage": "=You are an expert formatter agent for SAP offer preparation.  \nYou will receive a customer’s request for an SAP software proposal.  \nBefore preparing the final formatted output, use the Tavily search tool to research how similar SAP proposals or requests for proposals (RFPs) are structured. Focus on official, professional, and detailed examples — avoid video sources entirely.\n\nYour goal is to produce a clean, well-structured output that includes all key details needed for proposal generation. Use your research to improve accuracy, completeness, and alignment with real-world SAP proposal practices.\n\nFocus on:\n- Understanding the customer’s internal workflow or business process.\n- Identifying the SAP modules required.\n- Capturing timelines, user counts, localization needs, integrations, and other constraints or preferences.\n- Ensuring section titles and formatting match common SAP proposal conventions.\n\nOutput format:\nReturn the information as plain text with clearly labeled sections, not as JSON.  \nFor example:\nscope: ...\nproject: ...\nmodules: ...\nlocalization: ...\nintegrations: ...\ntimeline: ...\nbudget: ...\n\nDo not include explanations, comments, or any extra text beyond the labeled sections.\n\n\nUsing the Tavily tool: Send it a query\n"
+          "systemMessage": "=أنت وكيل ذكي اسمه \"Ministry Bot\"، مهمتك هي الإجابة عن الأسئلة المتعلقة بالقوانين والمراسيم التي تنظّم الوزارات اللبنانية.  \nلديك وصول إلى مخزن متجهي (Pinecone) يحتوي على نصوص من القوانين والمراسيم الرسمية مثل وزارة الدفاع، وزارة الإعلام، وزارة التربية، وزارة الخارجية وغيرها.  \n\n◀️ قواعد عامة:\n- عند تلقي سؤال، قم أوّلاً باسترجاع المقاطع الأكثر صلة من المخزن المتجهي (٣ إلى ٥ مقاطع).  \n- لا تخترع معلومات غير موجودة في المستندات. إذا لم تجد الجواب في النصوص، قل: \"المعلومة غير متوفرة في المستندات.\"  \n- أجب دائماً بالعربية الفصحى وبأسلوب رسمي وواضح.  \n- اجعل الجواب قصيراً ودقيقاً، مع ذكر المرسوم أو الجهة إذا كان مذكوراً.  \n- لا تعطِ رأياً شخصياً، اكتفِ بعرض ما ورد في المستندات.  \n\n◀️ طريقة العرض:\n- إذا كان السؤال عن **المهام** → أجب بنقاط مرتّبة.  \n- إذا كان السؤال عن **الهيكلية** → أجب على شكل قائمة.  \n- إذا كان السؤال عن **العلاقات أو التعاون** → أجب بجملة أو فقرتين.  \n\n◀️ أمثلة أسئلة وأجوبة:\n\nس: ما هو المرسوم الذي أعاد تنظيم وزارة الدفاع؟  \nج: صدر مرسوم تنظيمي في ١٨ آذار ١٩٩١ نصّ على إعادة تنظيم وزارة الدفاع وصلاحياتها.  \n\nس: ما هي مهام وزارة الإعلام؟  \nج:  \n- اقتراح وتطبيق السياسة الإعلامية.  \n- متابعة شؤون الإعلام والمطبوعات والإعلان.  \n- إنماء الإذاعة اللبنانية.  \n- الإشراف على المؤسسات السمعية والبصرية.  \n\nس: من هم أعضاء المجلس الاستشاري في وزارة الخارجية؟  \nج: يتألف المجلس الاستشاري في وزارة الخارجية من وزير الخارجية والمغتربين، المدير العام، وممثلين عن الإدارات المركزية والبعثات الدبلوماسية.  \n\nس: ما هي المديريات التابعة لوزارة التربية والتعليم العالي؟  \nج:  \n- مديرية التعليم الثانوي.  \n- مديرية التعليم الابتدائي.  \n- مديرية التعليم المهني والتقني.  \n- مديرية التعليم العالي.  \n\nس: مع أي جهات تتعاون وزارة البيئة؟  \nج: تتعاون وزارة البيئة مع وزارة الزراعة، وزارة الطاقة والمياه، والهيئات الدولية المختصة لحماية البيئة وإدارة الموارد الطبيعية.  \n\nس: ما هي علاقة وزارة الدفاع بوزارة الداخلية؟  \nج: تتعاون وزارة الدفاع مع وزارة الداخلية في مجال الأمن الداخلي، حالات الطوارئ، والتنسيق بين الجيش اللبناني والقوى الأمنية.  \n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2,
       "position": [
-        220,
-        620
-      ],
-      "id": "82666033-a027-4f9e-a524-036a02aab8a0",
-      "name": "Formatter Agent"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $json.text }}",
-        "options": {
-          "systemMessage": "=# Overview\nYou are an SAP proposal assistant responsible for generating complete, factual, and highly detailed SAP offers using customer input and internal documents retrieved via a RAG system (Pinecone).\n\n## Context\n- Input includes:\n  - User detailed request\n  - Retrieved documents: past offers, pricing, scopes, templates\n- Output must be structured into four clearly separated sections:\n  1. Offer\n  2. Proposal Summary\n  3. Scope of Work\n  4. Project Description\n\n## Instructions\n- Use only information from the retrieved documents — never invent, speculate, or use placeholder text.\n- All sections must be written in clear, confident, professional business language.\n- Maintain factual accuracy and ensure consistency with internal data.\n- Each section must be rich in detail — expand on every relevant point in the retrieved content.\n- The Project Description must be as deep, structured, and comprehensive as the most detailed past project examples, covering both business context and operational/technical specifics.\n- Provide module-level, integration-level, and process-level detail where available, not just names.\n- Do not restate or explain the input data at all.\n- Do not ask follow-up questions.\n- Ensure formatting is clean and ready for direct use.\n\n## Tools\n- Pinecone (RAG-retrieved documents)\n- Internal SAP proposal templates and pricing\n\n## Examples\n### Offer\nCompany: [Name]  \nModules:  \n1. [Module A]  \n2. [Module B]  \nPackage: [e.g., GROW with SAP]  \nUser Count: [X]  \nTerm: [X Years]  \nFee: $[Amount]  \nStart Date: [Date]  \n\n### Proposal Summary\nA strong, concise justification referencing relevant industries or similar past projects, highlighting strategic value, ROI, compliance, and alignment with client objectives.\n\n### Scope of Work\nModule-by-module breakdown with key deliverables, configurations, integrations, localizations, and implementation notes — each point drawn directly from retrieved material.\n\n### Project Description\nA full, self-contained narrative that integrates all relevant retrieved data, logically ordered to include:\n- Client background and industry context\n- Business objectives and strategic goals\n- Detailed operational scope (per module and integration)\n- Input characteristics and data preparation requirements\n- Applicable data standards, compliance, and localization requirements\n- Processing and implementation methodology (e.g., SAP Activate phases)\n- Output specifications and deliverables\n- Worked examples of process flows or use cases\n- Project timeline and milestones\n- Stakeholders and responsibilities\n- Assumptions, constraints, and dependencies\n- KPIs and reporting methods\n- Risks and mitigations\n- Security and compliance measures\n- Change management approach\n- Glossary of relevant SAP and industry terms\n\nThe description should weave together technical, operational, and business details into a single persuasive narrative suitable for direct integration into a long-form proposal.\n\n## Step-by-Step Process\n1. Parse the customer request and retrieved documents.\n2. Match requirements to internal offers, templates, and pricing.\n3. Generate the four required sections: Offer → Proposal Summary → Scope of Work → Project Description.\n4. In each section, expand on all relevant details found in retrieved content — do not compress or omit them unless irrelevant.\n5. Ensure all content is grounded in retrieved data and adheres to the above instructions.\n"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2,
-      "position": [
-        820,
-        620
+        1440,
+        0
       ],
       "id": "ae7dc50a-bf55-4633-bab7-37d125f15f44",
       "name": "Internal Data Agent"
@@ -39,8 +22,8 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        0,
-        620
+        1200,
+        0
       ],
       "id": "cb91c2c0-d45b-431e-9956-8ceed0b73d45",
       "name": "Chat",
@@ -53,8 +36,8 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1000,
-        1040
+        1620,
+        420
       ],
       "id": "13f77973-5660-4a59-8b71-93edbe266ac9",
       "name": "Embeddings Model",
@@ -67,44 +50,6 @@
     },
     {
       "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "H9QEhngtG1mKbP2h",
-          "mode": "list",
-          "cachedResultName": "Long Document"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "description",
-              "displayName": "description",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.2,
-      "position": [
-        1600,
-        740
-      ],
-      "id": "858f1277-93cb-4b37-bcaa-a4f064a7d2bc",
-      "name": "Execute Long Document"
-    },
-    {
-      "parameters": {
         "model": {
           "__rl": true,
           "mode": "list",
@@ -115,77 +60,17 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        800,
-        840
+        1420,
+        220
       ],
       "id": "12d9ba8f-38cd-4541-92fc-614e7902cd9f",
       "name": "4.1-mini",
       "credentials": {
         "openAiApi": {
-          "id": "0mTRXCdCdTWojcw3",
-          "name": "Omar"
+          "id": "iN0WKiU3syo7QHmh",
+          "name": "OpenAI Account"
         }
       }
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "mode": "list",
-          "value": "gpt-4.1-mini"
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        240,
-        840
-      ],
-      "id": "a1fe77b8-dc51-4237-b11f-694fb4069cde",
-      "name": "4.1 mini",
-      "credentials": {
-        "openAiApi": {
-          "id": "0mTRXCdCdTWojcw3",
-          "name": "Omar"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "// Get the JSON object from previous node output\nconst data = items[0].json.output;\n\n// Convert object to text \"key: value\" format\nlet textOutput = '';\nfor (const [key, value] of Object.entries(data)) {\n  textOutput += `${key}: ${value}\\n`;\n}\n\n// Return the text in a field for next nodes\nreturn [{\n  json: {\n    text: textOutput.trim()\n  }\n}];\n"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        580,
-        620
-      ],
-      "id": "99b8a89f-5b9b-430b-b32b-b4e882430360",
-      "name": "Neat Query Text"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "0d6d8198-e142-4e18-ad51-68c659df6d83",
-              "name": "description",
-              "value": "={{ $json.output }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        1280,
-        620
-      ],
-      "id": "145c78e2-d613-40be-bf9c-2627af02a0e9",
-      "name": "Final Description & Offer"
     },
     {
       "parameters": {
@@ -199,8 +84,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        40,
-        200
+        0,
+        0
       ],
       "id": "6718593f-fac6-487b-9cdc-3f0f7e0d9c71",
       "name": "List PDFs (Google Drive API)",
@@ -224,8 +109,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        480,
-        200
+        440,
+        0
       ],
       "id": "75a2ba05-09ec-484a-a074-07096b400367",
       "name": "Download PDF",
@@ -244,8 +129,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        260,
-        200
+        220,
+        0
       ],
       "id": "1e77d054-8d23-419d-aece-b2469a78a288",
       "name": "Split Out"
@@ -253,38 +138,18 @@
     {
       "parameters": {
         "content": "# Ingestion",
-        "height": 620,
+        "height": 660,
         "width": 1120,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -20,
-        -60
+        -50,
+        -100
       ],
       "typeVersion": 1,
       "id": "d28da647-f482-4eb7-b533-dc46b7f7d5f8",
       "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "query": "SAP offer requests",
-        "options": {}
-      },
-      "type": "@tavily/n8n-nodes-tavily.tavilyTool",
-      "typeVersion": 1,
-      "position": [
-        360,
-        840
-      ],
-      "id": "8eb8dbcf-be06-4ec9-bf04-fd1cdbfb09fb",
-      "name": "Search in Tavily",
-      "credentials": {
-        "tavilyApi": {
-          "id": "0DtiPg7XCtWbArif",
-          "name": "Tavily account"
-        }
-      }
     },
     {
       "parameters": {
@@ -302,7 +167,7 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.1,
       "position": [
-        720,
+        680,
         0
       ],
       "id": "8291c562-ea87-4f57-a58b-a04f67b3a968",
@@ -320,20 +185,20 @@
         "toolDescription": "Use this for fetching internal data",
         "pineconeIndex": {
           "__rl": true,
-          "value": "sapagent",
+          "value": "ministrybot",
           "mode": "list",
-          "cachedResultName": "sapagent"
+          "cachedResultName": "ministrybot"
         },
         "topK": 20,
         "options": {
-          "pineconeNamespace": "sapdata"
+          "pineconeNamespace": "data"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.3,
       "position": [
-        920,
-        860
+        1540,
+        220
       ],
       "id": "d1d09e72-a48d-4b20-8e30-6cca652ae6c1",
       "name": "Pinecone Internal Data",
@@ -352,8 +217,8 @@
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1,
       "position": [
-        820,
-        220
+        780,
+        222.5
       ],
       "id": "3a617fa9-83b1-4de3-90a3-2354d5357195",
       "name": "Default Data Loader"
@@ -367,7 +232,7 @@
       "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
       "typeVersion": 1,
       "position": [
-        900,
+        860,
         420
       ],
       "id": "7729cdb1-468b-4ac7-b045-da7267cb1952",
@@ -380,7 +245,7 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        700,
+        660,
         220
       ],
       "id": "0cb3e271-29a7-426c-8a20-20d627ada06b",
@@ -391,36 +256,35 @@
           "name": "OpenAI Account"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "# Chatting",
+        "height": 660,
+        "width": 840,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1060,
+        -100
+      ],
+      "typeVersion": 1,
+      "id": "1d46da60-0847-489f-94db-8c3aa075886c",
+      "name": "Sticky Note1"
     }
   ],
   "connections": {
-    "Formatter Agent": {
-      "main": [
-        [
-          {
-            "node": "Neat Query Text",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Internal Data Agent": {
       "main": [
-        [
-          {
-            "node": "Final Description & Offer",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Chat": {
       "main": [
         [
           {
-            "node": "Formatter Agent",
+            "node": "Internal Data Agent",
             "type": "main",
             "index": 0
           }
@@ -444,39 +308,6 @@
           {
             "node": "Internal Data Agent",
             "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "4.1 mini": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Formatter Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Neat Query Text": {
-      "main": [
-        [
-          {
-            "node": "Internal Data Agent",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Final Description & Offer": {
-      "main": [
-        [
-          {
-            "node": "Execute Long Document",
-            "type": "main",
             "index": 0
           }
         ]
@@ -510,17 +341,6 @@
           {
             "node": "Download PDF",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Search in Tavily": {
-      "ai_tool": [
-        [
-          {
-            "node": "Formatter Agent",
-            "type": "ai_tool",
             "index": 0
           }
         ]
