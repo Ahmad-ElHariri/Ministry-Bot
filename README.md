@@ -16,4 +16,4 @@ Ministry Bot is an AI-powered assistant built with n8n and vector search (Pineco
 2. Open **n8n** → *Workflows* → *Import from file/clipboard*.
 3. Copy the JSON from this repo and paste it into n8n.
 
-![Preview](Pinecone index.png)
+![Pinecone Index](https://raw.githubusercontent.com/Ahmad-ElHariri/Ministry-Bot/main/Pinecone%20index.png)
