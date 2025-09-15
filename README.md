@@ -11,9 +11,6 @@ This repository contains the n8n workflows used for:
 
 ## 🚀 Prerequisites
 - [n8n](https://n8n.io) installed (local or server)  
-- [Pinecone](https://www.pinecone.io) account for vector storage  
-- [OpenAI](https://platform.openai.com/) API key for embeddings & chat model  
-- Optional credentials: Google Drive (for document ingestion), custom DBs  
 
 ---
 
@@ -24,13 +21,6 @@ This repository contains the n8n workflows used for:
    ```
 2. Open **n8n** → *Workflows* → *Import from file/clipboard*.  
 3. Copy the JSON from this repo and paste it into n8n.  
-4. Configure environment variables:  
-   ```bash
-   OPENAI_API_KEY=<your_key>
-   PINECONE_API_KEY=<your_key>
-   PINECONE_ENVIRONMENT=<region>
-   N8N_ENCRYPTION_KEY=<secure_key>
-   ```
 
 ---
 
