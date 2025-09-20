@@ -2,6 +2,20 @@
   "nodes": [
     {
       "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1120,
+        760
+      ],
+      "id": "91da3241-3271-4ffd-a0c3-ce7f7809f4c9",
+      "name": "Chat",
+      "webhookId": "11fbc239-e1ad-4523-811e-f85c98b65c72"
+    },
+    {
+      "parameters": {
         "options": {
           "systemMessage": "=أنت وكيل ذكي اسمه \"Ministry Bot\"، مهمتك هي الإجابة عن الأسئلة المتعلقة بالقوانين والمراسيم التي تنظّم الوزارات اللبنانية.  \nلديك وصول إلى مخزن متجهي (Pinecone) يحتوي على نصوص من القوانين والمراسيم الرسمية مثل وزارة الدفاع، وزارة الإعلام، وزارة التربية، وزارة الخارجية وغيرها.  \n\n◀️ قواعد عامة:\n- عند تلقي سؤال، قم أوّلاً باسترجاع المقاطع الأكثر صلة من المخزن المتجهي (٣ إلى ٥ مقاطع).  \n- لا تخترع معلومات غير موجودة في المستندات. إذا لم تجد الجواب في النصوص، قل: \"المعلومة غير متوفرة في المستندات.\"  \n- أجب دائماً بالعربية الفصحى وبأسلوب رسمي وواضح.  \n- اجعل الجواب قصيراً ودقيقاً، مع ذكر المرسوم أو الجهة إذا كان مذكوراً.  \n- لا تعطِ رأياً شخصياً، اكتفِ بعرض ما ورد في المستندات.  \n\n◀️ طريقة العرض:\n- إذا كان السؤال عن **المهام** → أجب بنقاط مرتّبة.  \n- إذا كان السؤال عن **الهيكلية** → أجب على شكل قائمة.  \n- إذا كان السؤال عن **العلاقات أو التعاون** → أجب بجملة أو فقرتين.  \n\n◀️ أمثلة أسئلة وأجوبة:\n\nس: ما هو المرسوم الذي أعاد تنظيم وزارة الدفاع؟  \nج: صدر مرسوم تنظيمي في ١٨ آذار ١٩٩١ نصّ على إعادة تنظيم وزارة الدفاع وصلاحياتها.  \n\nس: ما هي مهام وزارة الإعلام؟  \nج:  \n- اقتراح وتطبيق السياسة الإعلامية.  \n- متابعة شؤون الإعلام والمطبوعات والإعلان.  \n- إنماء الإذاعة اللبنانية.  \n- الإشراف على المؤسسات السمعية والبصرية.  \n\nس: من هم أعضاء المجلس الاستشاري في وزارة الخارجية؟  \nج: يتألف المجلس الاستشاري في وزارة الخارجية من وزير الخارجية والمغتربين، المدير العام، وممثلين عن الإدارات المركزية والبعثات الدبلوماسية.  \n\nس: ما هي المديريات التابعة لوزارة التربية والتعليم العالي؟  \nج:  \n- مديرية التعليم الثانوي.  \n- مديرية التعليم الابتدائي.  \n- مديرية التعليم المهني والتقني.  \n- مديرية التعليم العالي.  \n\nس: مع أي جهات تتعاون وزارة البيئة؟  \nج: تتعاون وزارة البيئة مع وزارة الزراعة، وزارة الطاقة والمياه، والهيئات الدولية المختصة لحماية البيئة وإدارة الموارد الطبيعية.  \n\nس: ما هي علاقة وزارة الدفاع بوزارة الداخلية؟  \nج: تتعاون وزارة الدفاع مع وزارة الداخلية في مجال الأمن الداخلي، حالات الطوارئ، والتنسيق بين الجيش اللبناني والقوى الأمنية.  \n"
         }
@@ -9,25 +23,11 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2,
       "position": [
-        1440,
-        0
+        1380,
+        560
       ],
-      "id": "ae7dc50a-bf55-4633-bab7-37d125f15f44",
-      "name": "Internal Data Agent"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        1200,
-        0
-      ],
-      "id": "cb91c2c0-d45b-431e-9956-8ceed0b73d45",
-      "name": "Chat",
-      "webhookId": "b9f6eda5-a4ce-4d84-9acf-31a404c04c5f"
+      "id": "4da3f6ff-2f64-4620-8e23-802442b48981",
+      "name": "Internal Data Agent1"
     },
     {
       "parameters": {
@@ -36,11 +36,11 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1620,
-        420
+        1660,
+        980
       ],
-      "id": "13f77973-5660-4a59-8b71-93edbe266ac9",
-      "name": "Embeddings Model",
+      "id": "0a213390-688b-43e2-b438-016a850a481c",
+      "name": "Embeddings Model1",
       "credentials": {
         "openAiApi": {
           "id": "iN0WKiU3syo7QHmh",
@@ -60,122 +60,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1420,
-        220
+        1340,
+        780
       ],
-      "id": "12d9ba8f-38cd-4541-92fc-614e7902cd9f",
-      "name": "4.1-mini",
+      "id": "821347c5-a397-4383-980c-b827502b28ea",
+      "name": "4.1-mini1",
       "credentials": {
         "openAiApi": {
           "id": "iN0WKiU3syo7QHmh",
           "name": "OpenAI Account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "url": "=https://www.googleapis.com/drive/v3/files?q='1-aIY_PusN_eBBuk1fTmtedrcoyA28cK5'+in+parents+and+mimeType='application/pdf'&fields=files(id,name)&pageSize=1000",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "googleDriveOAuth2Api",
-        "options": {
-          "response": {}
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        0,
-        0
-      ],
-      "id": "6718593f-fac6-487b-9cdc-3f0f7e0d9c71",
-      "name": "List PDFs (Google Drive API)",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "fDMpcmQ6IwLYyts6",
-          "name": "Google Drive Credential"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "download",
-        "fileId": {
-          "__rl": true,
-          "value": "={{ $json.id }}",
-          "mode": "id"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        440,
-        0
-      ],
-      "id": "75a2ba05-09ec-484a-a074-07096b400367",
-      "name": "Download PDF",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "fDMpcmQ6IwLYyts6",
-          "name": "Google Drive Credential"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "fieldToSplitOut": "files",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
-      "position": [
-        220,
-        0
-      ],
-      "id": "1e77d054-8d23-419d-aece-b2469a78a288",
-      "name": "Split Out"
-    },
-    {
-      "parameters": {
-        "content": "# Ingestion",
-        "height": 660,
-        "width": 1120,
-        "color": 4
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -50,
-        -100
-      ],
-      "typeVersion": 1,
-      "id": "d28da647-f482-4eb7-b533-dc46b7f7d5f8",
-      "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "mode": "insert",
-        "pineconeIndex": {
-          "__rl": true,
-          "value": "ministrybot",
-          "mode": "list",
-          "cachedResultName": "ministrybot"
-        },
-        "options": {
-          "pineconeNamespace": "data"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
-      "typeVersion": 1.1,
-      "position": [
-        680,
-        0
-      ],
-      "id": "8291c562-ea87-4f57-a58b-a04f67b3a968",
-      "name": "Pinecone Vector Store",
-      "credentials": {
-        "pineconeApi": {
-          "id": "4LpKFjhdPCD9VOXK",
-          "name": "elhariri2023@gmail.com"
         }
       }
     },
@@ -197,11 +90,11 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.3,
       "position": [
-        1540,
-        220
+        1580,
+        780
       ],
-      "id": "d1d09e72-a48d-4b20-8e30-6cca652ae6c1",
-      "name": "Pinecone Internal Data",
+      "id": "e2687092-85ef-4a2c-afa0-c6b694b60240",
+      "name": "Pinecone Internal Data1",
       "credentials": {
         "pineconeApi": {
           "id": "4LpKFjhdPCD9VOXK",
@@ -211,180 +104,76 @@
     },
     {
       "parameters": {
-        "dataType": "binary",
-        "options": {}
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Chat').item.json.sessionId }}",
+        "contextWindowLength": 10
       },
-      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
-      "typeVersion": 1,
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
       "position": [
-        780,
-        222.5
+        1460,
+        780
       ],
-      "id": "3a617fa9-83b1-4de3-90a3-2354d5357195",
-      "name": "Default Data Loader"
-    },
-    {
-      "parameters": {
-        "chunkSize": 400,
-        "chunkOverlap": 80,
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
-      "typeVersion": 1,
-      "position": [
-        860,
-        420
-      ],
-      "id": "7729cdb1-468b-4ac7-b045-da7267cb1952",
-      "name": "Text Splitter"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        660,
-        220
-      ],
-      "id": "0cb3e271-29a7-426c-8a20-20d627ada06b",
-      "name": "Embeddings OpenAI",
-      "credentials": {
-        "openAiApi": {
-          "id": "iN0WKiU3syo7QHmh",
-          "name": "OpenAI Account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "content": "# Chatting",
-        "height": 660,
-        "width": 840,
-        "color": 3
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        1060,
-        -100
-      ],
-      "typeVersion": 1,
-      "id": "1d46da60-0847-489f-94db-8c3aa075886c",
-      "name": "Sticky Note1"
+      "id": "43646a03-bf0b-40b9-85b9-3099ec879d13",
+      "name": "Simple Memory1"
     }
   ],
   "connections": {
-    "Internal Data Agent": {
-      "main": [
-        []
-      ]
-    },
     "Chat": {
       "main": [
         [
           {
-            "node": "Internal Data Agent",
+            "node": "Internal Data Agent1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Embeddings Model": {
+    "Internal Data Agent1": {
+      "main": [
+        []
+      ]
+    },
+    "Embeddings Model1": {
       "ai_embedding": [
         [
           {
-            "node": "Pinecone Internal Data",
+            "node": "Pinecone Internal Data1",
             "type": "ai_embedding",
             "index": 0
           }
         ]
       ]
     },
-    "4.1-mini": {
+    "4.1-mini1": {
       "ai_languageModel": [
         [
           {
-            "node": "Internal Data Agent",
+            "node": "Internal Data Agent1",
             "type": "ai_languageModel",
             "index": 0
           }
         ]
       ]
     },
-    "List PDFs (Google Drive API)": {
-      "main": [
-        [
-          {
-            "node": "Split Out",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Download PDF": {
-      "main": [
-        [
-          {
-            "node": "Pinecone Vector Store",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out": {
-      "main": [
-        [
-          {
-            "node": "Download PDF",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Pinecone Internal Data": {
+    "Pinecone Internal Data1": {
       "ai_tool": [
         [
           {
-            "node": "Internal Data Agent",
+            "node": "Internal Data Agent1",
             "type": "ai_tool",
             "index": 0
           }
         ]
       ]
     },
-    "Default Data Loader": {
-      "ai_document": [
+    "Simple Memory1": {
+      "ai_memory": [
         [
           {
-            "node": "Pinecone Vector Store",
-            "type": "ai_document",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Text Splitter": {
-      "ai_textSplitter": [
-        [
-          {
-            "node": "Default Data Loader",
-            "type": "ai_textSplitter",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Embeddings OpenAI": {
-      "ai_embedding": [
-        [
-          {
-            "node": "Pinecone Vector Store",
-            "type": "ai_embedding",
+            "node": "Internal Data Agent1",
+            "type": "ai_memory",
             "index": 0
           }
         ]
