@@ -11,10 +11,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2,
       "position": [
-        260,
-        580
+        -736,
+        32
       ],
-      "id": "ae7dc50a-bf55-4633-bab7-37d125f15f44",
+      "id": "8c28d0cf-85d4-46a0-a7ed-efe8aa330ae7",
       "name": "Internal Data Agent"
     },
     {
@@ -24,15 +24,15 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        540,
-        1000
+        -448,
+        464
       ],
-      "id": "13f77973-5660-4a59-8b71-93edbe266ac9",
+      "id": "c1790532-4bc1-4cee-bcb6-36bd3badb0c6",
       "name": "Embeddings Model",
       "credentials": {
         "openAiApi": {
-          "id": "iN0WKiU3syo7QHmh",
-          "name": "OpenAI Account"
+          "id": "iYEw9zMn81Q9wghq",
+          "name": "OpenAi account"
         }
       }
     },
@@ -48,15 +48,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        220,
-        800
+        -784,
+        256
       ],
-      "id": "12d9ba8f-38cd-4541-92fc-614e7902cd9f",
+      "id": "7baca161-7ea5-46c6-9606-2f03b4c651cd",
       "name": "4.1-mini",
       "credentials": {
         "openAiApi": {
-          "id": "iN0WKiU3syo7QHmh",
-          "name": "OpenAI Account"
+          "id": "iYEw9zMn81Q9wghq",
+          "name": "OpenAi account"
         }
       }
     },
@@ -72,15 +72,15 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1100,
-        640
+        -1008,
+        1520
       ],
-      "id": "6718593f-fac6-487b-9cdc-3f0f7e0d9c71",
+      "id": "09f3e30b-c7ab-487d-bb93-d0ae93c4c9d9",
       "name": "List PDFs (Google Drive API)",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "fDMpcmQ6IwLYyts6",
-          "name": "Google Drive Credential"
+          "id": "5U17CKSNIHcDV0OI",
+          "name": "Google Drive account"
         }
       }
     },
@@ -97,15 +97,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -660,
-        640
+        -560,
+        1520
       ],
-      "id": "75a2ba05-09ec-484a-a074-07096b400367",
+      "id": "23bc17f0-57ed-4254-85cb-f3f9bb38376e",
       "name": "Download PDF",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "NLlW4qGsXPRn0mpn",
-          "name": "Ministry Bot Account"
+          "id": "5U17CKSNIHcDV0OI",
+          "name": "Google Drive account"
         }
       }
     },
@@ -117,10 +117,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -880,
-        640
+        -784,
+        1520
       ],
-      "id": "1e77d054-8d23-419d-aece-b2469a78a288",
+      "id": "d0d3b2be-b4f7-47af-a823-2f822b378a92",
       "name": "Split Out"
     },
     {
@@ -139,14 +139,14 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.1,
       "position": [
-        -420,
-        640
+        -304,
+        1520
       ],
-      "id": "8291c562-ea87-4f57-a58b-a04f67b3a968",
+      "id": "bff03dd6-b6c0-43df-91cc-ba2abe31101a",
       "name": "Pinecone Vector Store",
       "credentials": {
         "pineconeApi": {
-          "id": "wqJ37YhPbcZHvVDk",
+          "id": "pjHuV7KE3OF1qCui",
           "name": "PineconeApi account"
         }
       }
@@ -157,9 +157,9 @@
         "toolDescription": "Use this for fetching internal data",
         "pineconeIndex": {
           "__rl": true,
-          "value": "ministrybot",
+          "value": "abuhmed",
           "mode": "list",
-          "cachedResultName": "ministrybot"
+          "cachedResultName": "abuhmed"
         },
         "topK": 20,
         "options": {
@@ -169,15 +169,15 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.3,
       "position": [
-        460,
-        802.5
+        -528,
+        256
       ],
-      "id": "d1d09e72-a48d-4b20-8e30-6cca652ae6c1",
+      "id": "2a5e7dd7-af32-4e47-b814-117b74dc4868",
       "name": "Pinecone Internal Data",
       "credentials": {
         "pineconeApi": {
-          "id": "4LpKFjhdPCD9VOXK",
-          "name": "elhariri2023@gmail.com"
+          "id": "pjHuV7KE3OF1qCui",
+          "name": "PineconeApi account"
         }
       }
     },
@@ -189,10 +189,10 @@
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1,
       "position": [
-        -320,
-        860
+        -208,
+        1744
       ],
-      "id": "3a617fa9-83b1-4de3-90a3-2354d5357195",
+      "id": "25c7399e-75af-4400-8f4e-9a7090245047",
       "name": "Default Data Loader"
     },
     {
@@ -204,10 +204,10 @@
       "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
       "typeVersion": 1,
       "position": [
-        -240,
-        1060
+        -128,
+        1952
       ],
-      "id": "7729cdb1-468b-4ac7-b045-da7267cb1952",
+      "id": "e5bb8623-48f7-4e8e-a324-845a3f4d8fa9",
       "name": "Text Splitter"
     },
     {
@@ -217,15 +217,15 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        -440,
-        860
+        -336,
+        1744
       ],
-      "id": "0cb3e271-29a7-426c-8a20-20d627ada06b",
+      "id": "042561c2-24ab-4afc-9b69-cf2f5c58a55a",
       "name": "Embeddings OpenAI",
       "credentials": {
         "openAiApi": {
-          "id": "iN0WKiU3syo7QHmh",
-          "name": "OpenAI Account"
+          "id": "iYEw9zMn81Q9wghq",
+          "name": "OpenAi account"
         }
       }
     },
@@ -239,10 +239,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        0,
-        780
+        -1008,
+        240
       ],
-      "id": "90f16482-dec5-44c4-b3d2-7cc2fd59e401",
+      "id": "caa9fd2c-9fd5-4e25-8a90-2301e3b7ee9a",
       "name": "Webhook",
       "webhookId": "cda204fb-cea3-4cec-8fd3-8b3698aeadcc"
     },
@@ -255,10 +255,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        340,
-        800
+        -656,
+        256
       ],
-      "id": "21fa32d9-c2ee-4396-90e0-d98c346aeb7d",
+      "id": "4e4d555f-f5e2-40e7-9c71-7b2872503b27",
       "name": "Simple Memory"
     },
     {
@@ -269,10 +269,10 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.4,
       "position": [
-        820,
-        780
+        -160,
+        240
       ],
-      "id": "0bf162c2-c677-4c77-8dfd-42e86c32be42",
+      "id": "8701c9bd-4aab-4bc1-a8ef-31dc3c7e3824",
       "name": "Respond to Webhook"
     },
     {
@@ -282,27 +282,12 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        1040,
-        780
+        -944,
+        672
       ],
-      "id": "91da3241-3271-4ffd-a0c3-ce7f7809f4c9",
+      "id": "9aeba2e6-98c9-4af8-b8f9-027a38a069f1",
       "name": "Chat",
       "webhookId": "11fbc239-e1ad-4523-811e-f85c98b65c72"
-    },
-    {
-      "parameters": {
-        "options": {
-          "systemMessage": "=أنت وكيل ذكي اسمه \"Ministry Bot\"، مهمتك هي الإجابة عن الأسئلة المتعلقة بالقوانين والمراسيم التي تنظّم الوزارات اللبنانية.  \nلديك وصول إلى مخزن متجهي (Pinecone) يحتوي على نصوص من القوانين والمراسيم الرسمية مثل وزارة الدفاع، وزارة الإعلام، وزارة التربية، وزارة الخارجية وغيرها.  \n\n◀️ قواعد عامة:\n- عند تلقي سؤال، قم أوّلاً باسترجاع المقاطع الأكثر صلة من المخزن المتجهي (٣ إلى ٥ مقاطع).  \n- لا تخترع معلومات غير موجودة في المستندات. إذا لم تجد الجواب في النصوص، قل: \"المعلومة غير متوفرة في المستندات.\"  \n- أجب دائماً بالعربية الفصحى وبأسلوب رسمي وواضح.  \n- اجعل الجواب قصيراً ودقيقاً، مع ذكر المرسوم أو الجهة إذا كان مذكوراً.  \n- لا تعطِ رأياً شخصياً، اكتفِ بعرض ما ورد في المستندات.  \n\n◀️ طريقة العرض:\n- إذا كان السؤال عن **المهام** → أجب بنقاط مرتّبة.  \n- إذا كان السؤال عن **الهيكلية** → أجب على شكل قائمة.  \n- إذا كان السؤال عن **العلاقات أو التعاون** → أجب بجملة أو فقرتين.  \n\n◀️ أمثلة أسئلة وأجوبة:\n\nس: ما هو المرسوم الذي أعاد تنظيم وزارة الدفاع؟  \nج: صدر مرسوم تنظيمي في ١٨ آذار ١٩٩١ نصّ على إعادة تنظيم وزارة الدفاع وصلاحياتها.  \n\nس: ما هي مهام وزارة الإعلام؟  \nج:  \n- اقتراح وتطبيق السياسة الإعلامية.  \n- متابعة شؤون الإعلام والمطبوعات والإعلان.  \n- إنماء الإذاعة اللبنانية.  \n- الإشراف على المؤسسات السمعية والبصرية.  \n\nس: من هم أعضاء المجلس الاستشاري في وزارة الخارجية؟  \nج: يتألف المجلس الاستشاري في وزارة الخارجية من وزير الخارجية والمغتربين، المدير العام، وممثلين عن الإدارات المركزية والبعثات الدبلوماسية.  \n\nس: ما هي المديريات التابعة لوزارة التربية والتعليم العالي؟  \nج:  \n- مديرية التعليم الثانوي.  \n- مديرية التعليم الابتدائي.  \n- مديرية التعليم المهني والتقني.  \n- مديرية التعليم العالي.  \n\nس: مع أي جهات تتعاون وزارة البيئة؟  \nج: تتعاون وزارة البيئة مع وزارة الزراعة، وزارة الطاقة والمياه، والهيئات الدولية المختصة لحماية البيئة وإدارة الموارد الطبيعية.  \n\nس: ما هي علاقة وزارة الدفاع بوزارة الداخلية؟  \nج: تتعاون وزارة الدفاع مع وزارة الداخلية في مجال الأمن الداخلي، حالات الطوارئ، والتنسيق بين الجيش اللبناني والقوى الأمنية.  \n"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 2,
-      "position": [
-        1300,
-        580
-      ],
-      "id": "4da3f6ff-2f64-4620-8e23-802442b48981",
-      "name": "Internal Data Agent1"
     },
     {
       "parameters": {
@@ -311,15 +296,15 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1580,
-        1000
+        -448,
+        1104
       ],
-      "id": "0a213390-688b-43e2-b438-016a850a481c",
+      "id": "560bd0f6-1795-4997-a55b-046daafe3328",
       "name": "Embeddings Model1",
       "credentials": {
         "openAiApi": {
-          "id": "iN0WKiU3syo7QHmh",
-          "name": "OpenAI Account"
+          "id": "iYEw9zMn81Q9wghq",
+          "name": "OpenAi account"
         }
       }
     },
@@ -327,23 +312,24 @@
       "parameters": {
         "model": {
           "__rl": true,
+          "value": "gpt-4.1",
           "mode": "list",
-          "value": "gpt-4.1-mini"
+          "cachedResultName": "gpt-4.1"
         },
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1260,
-        800
+        -784,
+        896
       ],
-      "id": "821347c5-a397-4383-980c-b827502b28ea",
+      "id": "84e0d75d-224a-43cc-a07a-1465ceb39e52",
       "name": "4.1-mini1",
       "credentials": {
         "openAiApi": {
-          "id": "iN0WKiU3syo7QHmh",
-          "name": "OpenAI Account"
+          "id": "iYEw9zMn81Q9wghq",
+          "name": "OpenAi account"
         }
       }
     },
@@ -353,9 +339,9 @@
         "toolDescription": "Use this for fetching internal data",
         "pineconeIndex": {
           "__rl": true,
-          "value": "ministrybot",
+          "value": "abuhmed",
           "mode": "list",
-          "cachedResultName": "ministrybot"
+          "cachedResultName": "abuhmed"
         },
         "topK": 20,
         "options": {
@@ -365,15 +351,15 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
       "typeVersion": 1.3,
       "position": [
-        1500,
-        800
+        -528,
+        896
       ],
-      "id": "e2687092-85ef-4a2c-afa0-c6b694b60240",
+      "id": "420e5716-1e7e-438b-8d16-39a94534a281",
       "name": "Pinecone Internal Data1",
       "credentials": {
         "pineconeApi": {
-          "id": "4LpKFjhdPCD9VOXK",
-          "name": "elhariri2023@gmail.com"
+          "id": "pjHuV7KE3OF1qCui",
+          "name": "PineconeApi account"
         }
       }
     },
@@ -386,58 +372,72 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1380,
-        800
+        -656,
+        896
       ],
-      "id": "43646a03-bf0b-40b9-85b9-3099ec879d13",
+      "id": "99818529-1c2d-465f-a1c4-f6cf43dd84f6",
       "name": "Simple Memory1"
     },
     {
       "parameters": {
-        "content": "# Ingestion",
-        "height": 760,
-        "width": 1120,
-        "color": 4
+        "descriptionType": "manual",
+        "toolDescription": "Use this tool for searching online",
+        "query": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Query', ``, 'string') }}",
+        "options": {}
       },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        -1160,
-        480
-      ],
+      "type": "@tavily/n8n-nodes-tavily.tavilyTool",
       "typeVersion": 1,
-      "id": "f4b613d5-3dfe-4d84-b155-859282bb2d0d",
-      "name": "Sticky Note"
+      "position": [
+        -240,
+        896
+      ],
+      "id": "2f0e68b7-540e-44b9-8ab8-2ec7fe13270a",
+      "name": "Search in Tavily",
+      "credentials": {
+        "tavilyApi": {
+          "id": "E3XjfEpiZbOAqOc9",
+          "name": "Tavily account"
+        }
+      }
     },
     {
       "parameters": {
-        "content": "# Public Agent",
-        "height": 760,
-        "width": 1040
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77ae0dad-4b0f-4821-89b8-9d4f021cfc9a",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
       },
-      "type": "n8n-nodes-base.stickyNote",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
       "position": [
-        -40,
-        480
+        -32,
+        672
       ],
-      "typeVersion": 1,
-      "id": "181b3d9d-70f5-4d44-ae0d-a333584a1f5d",
-      "name": "Sticky Note1"
+      "id": "bb6fb44e-d339-4f66-887d-ba0906f23ed9",
+      "name": "Edit Fields"
     },
     {
       "parameters": {
-        "content": "# Chatting Agent",
-        "height": 760,
-        "width": 820,
-        "color": 5
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an intelligent AI agent named “Ministry Bot”. Your sole responsibility is to answer questions about the official laws and regulatory decrees governing Lebanese ministries.\n\nContext\n\nPrimary knowledge source: a Pinecone vector store containing official Lebanese legal texts, decrees, and regulations (e.g., Ministry of Defense, Ministry of Information, Ministry of Education, Ministry of Foreign Affairs, etc.).\n\nSecondary fallback: the Tavily Web Search tool, used only when internal knowledge is missing or insufficient.\n\nCore Instructions\n\nAlways answer in Modern Standard Arabic (فصحى), using a formal, neutral, and official tone.\n\nTruthfulness is mandatory — never hallucinate, interpret, or invent information. Only use Pinecone or Tavily results.\n\nAnswer priority order:\n\nPinecone → Retrieve 3–5 of the most relevant passages.\n\nIf Pinecone passages are insufficient, incomplete, or irrelevant, you are REQUIRED to use Tavily Web Search.\n\nOnly if both Pinecone and Tavily fail to provide sufficient information, respond with:\n\"المعلومة غير متوفرة في الوثائق الرسمية.\"\n\nAttribution: When available, mention the decree number, date, or official authority.\n\nOut-of-scope queries: If the question is unrelated to Lebanese ministries’ laws/decrees, politely state that the question is outside your scope.\n\nNo legal advice or opinions — present the text of the law/decree as is, without interpretation or speculation.\n\nAnswer Formatting Rules\n\nTasks (المهام): Present as concise Arabic bullet points using • — one point per line.\n\nStructure (الهيكلية): Present as a clear list of directorates, units, or departments (bullets • or Arabic ordered list).\n\nRelationships/Cooperation (العلاقات/التعاون): Present in 1–2 formal sentences.\n\nSource citation inside the text: When possible, include decree number, date, and issuing authority.\n\nBrevity: Keep answers short, precise, and factual.\n\nمصادر الويب — قواعد تنسيق إلزامية عند استخدام Tavily\n\nStart a new section titled المصادر: on its own line.\n\nList up to 3 sources, each on its own line, using Arabic numerals (١)، (٢)، (٣).\n\nFor each source, print exactly this template (with a line break for the URL):\n\nالمصادر:\n١) **عنوان المصدر** — *domain.tld* (YYYY-MM-DD):\n   https://example.com/path\n٢) **عنوان المصدر** — *domain2.tld*:\n   https://example2.com/page\n\n\nIf a reliable publication date is available, include it in parentheses; otherwise omit it (do not guess).\n\nThe URL must be on a new line beneath the title line (with a small indent or leading spaces).\n\nDo not put multiple sources on one line.\n\nPrefer official sources first (Official Gazette, ministry sites, *.gov.lb), then reputable national outlets.\n\nDeduplicate near-identical links and strip tracking where possible.\n\nNegative examples (do not do):\n\nالمصادر: ١) عنوان — domain: URL ٢) عنوان — domain: URL (all in one line ❌)\n\nMore than 3 sources ❌\n\nEnglish numerals instead of Arabic ١،٢،٣ ❌\n\nMissing line break before the URL ❌\n\nRetrieval & Web Search Policy\n\nStart with Pinecone retrieval (3–5 passages).\n\nIf the answer is not fully covered by Pinecone, you must call Tavily Web Search before giving any fallback message.\n\nUse Tavily only to fetch from authoritative or official sources (e.g., Official Gazette, ministry websites). Avoid blogs or unreliable sites.\n\nIf both Pinecone and Tavily provide no useful answer, then and only then respond with:\n\"المعلومة غير متوفرة في الوثائق الرسمية.\"\n\nExamples\n\nس: ما هو المرسوم الذي أعاد تنظيم وزارة الدفاع؟\nج: صدر مرسوم تنظيمي بتاريخ 18 آذار 1991 أعاد تنظيم وزارة الدفاع وحدّد صلاحياتها.\n\nس: ما هي مهام وزارة الإعلام؟\nج:\n• اقتراح وتنفيذ السياسة الإعلامية.\n• متابعة شؤون الإعلام والمطبوعات والإعلان.\n• تطوير الإذاعة اللبنانية.\n• الإشراف على المؤسسات السمعية والبصرية.\n\nس: من هم أعضاء المجلس الاستشاري في وزارة الخارجية؟\nج: يتألف من وزير الخارجية والمغتربين، المدير العام، وممثلين عن الإدارات المركزية والبعثات الدبلوماسية.\n\nس: ما هي المديريات التابعة لوزارة التربية والتعليم العالي؟\nج:\n• مديرية التعليم الثانوي.\n• مديرية التعليم الابتدائي.\n• مديرية التعليم المهني والتقني.\n• مديرية التعليم العالي.\n\nس: مع من تتعاون وزارة البيئة؟\nج: تتعاون مع وزارة الزراعة، ووزارة الطاقة والمياه، والهيئات الدولية المختصة لحماية البيئة وإدارة الموارد الطبيعية.\n\nس: ما هي العلاقة بين وزارة الدفاع ووزارة الداخلية؟\nج: تتعاون وزارة الدفاع مع وزارة الداخلية في مجالات الأمن الداخلي، الحالات الطارئة، والتنسيق بين الجيش اللبناني والقوى الأمنية."
+        }
       },
-      "type": "n8n-nodes-base.stickyNote",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
       "position": [
-        1000,
-        480
+        -528,
+        672
       ],
-      "typeVersion": 1,
-      "id": "c269118d-fd15-480c-8c72-81817bbe0db4",
-      "name": "Sticky Note2"
+      "id": "7d1b49a6-0e52-46c9-a807-cd1ea804fb7a",
+      "name": "AI Agent"
     }
   ],
   "connections": {
@@ -577,16 +577,11 @@
       "main": [
         [
           {
-            "node": "Internal Data Agent1",
+            "node": "AI Agent",
             "type": "main",
             "index": 0
           }
         ]
-      ]
-    },
-    "Internal Data Agent1": {
-      "main": [
-        []
       ]
     },
     "Embeddings Model1": {
@@ -604,7 +599,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "Internal Data Agent1",
+            "node": "AI Agent",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -615,7 +610,7 @@
       "ai_tool": [
         [
           {
-            "node": "Internal Data Agent1",
+            "node": "AI Agent",
             "type": "ai_tool",
             "index": 0
           }
@@ -626,8 +621,30 @@
       "ai_memory": [
         [
           {
-            "node": "Internal Data Agent1",
+            "node": "AI Agent",
             "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search in Tavily": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
             "index": 0
           }
         ]
@@ -636,6 +653,7 @@
   },
   "pinData": {},
   "meta": {
-    "instanceId": "e85ca3569654f8c99056066678f7f5d049e6b484d0e64e9cc65bf67d3d24ea18"
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9790440382b26b8756faed847318b823fd323b3ec2df725521a3ba865176a9a7"
   }
 }
